@@ -1,7 +1,7 @@
 service: hello-service # change to your service name
 
 plugins:
-  - serverless-pseudo-parameters # to work with sudo-parameters like #{AWS::Region}
+  - serverless-pseudo-parameters # to work with pseudo parameters like #{AWS::Region}
 
 provider:
   name: aws
@@ -9,6 +9,7 @@ provider:
   memorySize: 256
   lambdaHashingVersion: 20201221
   region: eu-west-1 # change to your region
+  stage: ${opt:stage, 'dev'}
 
 functions:
   hello:
