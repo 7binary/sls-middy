@@ -1,0 +1,23 @@
+service: hello-service # change to your service name
+
+plugins:
+  - serverless-pseudo-parameters # to work with sudo-parameters like #{AWS::Region}
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  lambdaHashingVersion: 20201221
+  region: eu-west-1 # change to your region
+
+functions:
+  hello:
+    handler: dist/index.hello
+    events:
+      - http:
+          path: /hello
+          method: GET
+
+custom:
+  bundle:
+    linting: false

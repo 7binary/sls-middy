@@ -1,0 +1,8 @@
+node_modules
+.serverless
+secret.pem
+.webpack
+.idea
+.DS_Store
+.webpackCache
+dist
